@@ -7,20 +7,17 @@ package p00.htorres.a03;
 
 /**
  *
- * @author Hibeth Torres
+ * @author Alison Torres
  */
-public class Tecla {
-    //Atributos
-  private char digito;
-  //Methods
-  public void setDigito (char d) {
-      this.digito = d;
-  }
-  
-  public char getDigito(){
-      return this.digito;
-  }
+class starTac {
 
-   
+    static Object[][] Teclado;
+
+    static class Teclado {
+
+        public Teclado() {
+        }
     }
+}
     
+ 

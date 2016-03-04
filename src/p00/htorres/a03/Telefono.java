@@ -12,12 +12,17 @@ import java.util.Scanner;
  * @author Hibeth Torres
  */
 public class Telefono {
+
+    static boolean mostrarContacto(int i) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     //Atributos, instanciar objetos
     
     botonApagar EA = new botonApagar();
     Scanner Input = new Scanner(System.in);
     Tecla [] [] Teclado = new Tecla [5][3];
-    public void setTeclado (){
+    public static Contacto [] Lista = new Contacto [100];
+   public void setTeclado (){
         int dig = 0;
           for (int i = 0; i < 5; i++){
             for (int j = 0; j < 3; j++){
@@ -44,9 +49,61 @@ public class Telefono {
         Teclado [3][1] = temp2;
         temp3.setDigito('#');
         Teclado [3][2] = temp3;
+        temp4.setDigito('c');
+        Teclado [4][0] = temp4;
+        temp5.setDigito('m');
+        Teclado [4][1] = temp5;
+        temp6.setDigito('t');
+        Teclado [4][2] = temp6;
+   }
 
+  private static int buscaEspacio(Contacto[]Lista){
+        int t = -1;
+        for (int i = 0; i <= Lista.length; i++) {
+            if (Lista[i] == null) {
+                t = i;
+                i = 101;
+               }
+            }
+        return t;
+    }
+    
+      public static void guardaContactoEnN(int n, String name, String tel, String mail) {
+        if (n < 100 && n >= 0) {
+            Contacto Temp = new Contacto(name, tel, mail);
+            Lista[n] = Temp;
+        } else {
+            System.out.println("El numero es invalido.");
+        }
+    }
+    
+
+    public static void guardaContacto(String name, String tel, String mail) {
+        int espacio = buscaEspacio(Lista);
+        if (espacio < 0) {
+            System.out.println("Ya no hay mas espacio en la lista");
+        } else {
+            Contacto Temp = new Contacto(name, tel, mail);
+            Lista[espacio] = Temp;
+        }
+    }
+    public static void showContacto(int n) {
+        Lista[n].getContacto();
+    }
+    
+ 
+    public static void showLista() {
+        for (int i = 0; i < Lista.length; i++) {
+            if (Lista[i] == null) {
+                System.out.println("Contacto " + i + ", no existe");
+            } else {
+                System.out.println("Contacto " + i);
+                Lista[i].getContacto();
+            }
+        }
+    }
     class EA {
 
         public EA() {
         }
-    }}}
+    }}
