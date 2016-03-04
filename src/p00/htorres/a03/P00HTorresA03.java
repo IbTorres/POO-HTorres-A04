@@ -15,19 +15,26 @@ public class P00HTorresA03 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-    Telefono starTac = new Telefono();
-        starTac.EA.presionar ();
-        System.out.println("el starTac esta: " + starTac.EA.Io);
-        
+    Telefono starTac = new Telefono(); 
+    starTac.EA.presionar ();
+    System.out.println("el starTac esta: " + starTac.EA.Io);
+      
         starTac.setTeclado();
             for (int i = 0; i < 5; i++){
                 for (int j = 0; j < 3; j++){
                     System.out.print(starTac.Teclado [i][j].getDigito());
                     if (j==starTac.Teclado[0].length-1) {
-                        System.out.println("");
-                }              
-            }
-        }
+                     }              
+                }
+                System.out.println("");
+                }
+            // Instanciar un contacto
+        /**
+         * Instanciamos un contacto
+         */
+    Telefono.guardaContacto("Hibeth Torres", "8332182930","A00513747@itesm.mx");
+    Telefono.guardaContacto("Alison Torres", "8331556093", "alison.torres@outlook.com");
+    Telefono.showLista();
     }   
 }
     
